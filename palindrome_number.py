@@ -1,25 +1,12 @@
 class Solution(object):
-    def isPalindrome(self, s):
+    def isPalindrome(self, x):
+        if(x<0):
+            return False
+        
+        m=str(x)
+        txt = m[::-1]
+        return txt==m
         """
-        :type s: str
+        :type x: int
         :rtype: bool
         """
-        
-        paren = {')': '(', '}': '{', ']': '['}
-        stack = []
-        
-        if len(s) < 2: 
-            return False 
-        
-        for char in s:
-            
-            if char in paren.values():
-                stack.append(char)
-            elif char in paren.keys():
-                if stack == [] or stack.pop() != paren[char]:
-                    return False
-            else:
-                return False
-            
-        return stack == []
-                    
